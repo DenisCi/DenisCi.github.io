@@ -1,30 +1,82 @@
 <html>
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Explanation</title>
    <link rel="stylesheet" href="style.css">
     </head>
    
     <body>
         <center>
-     <h1>Explanation</h1>
-       <h2>Explaining to detective what happened</h2>
+     <h1>Interview time.</h1>
+       <h2>Tell us what you've found.</h2>
        </center>
    <br>
-   <center>
-    <img src="https://previews.123rf.com/images/ostill/ostill1411/ostill141100115/33561286-one-detective-man-criminal-investigations-investigating-crime-in-silhouette-on-white-background.jpg">
+    <img src="https://live.staticflickr.com/3187/2741458748_5c6f5fc4da_b.jpg" class="BG">
+   <br>
    <br>
    <br>
    <br>
    <br>
 
-   </center>
-   <br>
-   <br>
-   <br>
-   <center> 
+   <button type="button" onclick="pageRedirect()">Yes, that's correct.</button>
+
+<script>
+    function pageRedirect() {
+        wep = document.getElementById('weapon').value;
+        footwear = document.getElementById('footwear').value;
+        if (wep == "a knife" && footwear == "very small boots"){
+      window.location.href = "summary.html";
+        }else{
+            window.location.href = "wrong.html";
+        }
+    }      
+</script>
+
+<script>
+    function deduction(){
+     var wep = document.getElementById('weapon').value;
+     var footwear = document.getElementById('footwear').value;
+     document.getElementById("demo").innerHTML =("So your deduction is that the killer murdered our poor victim with "+wep+", and was wearing "+footwear+" when they fled the scene. Is this correct?");
+    }
+</script>
+
+
+<div class="flex-container">
+    <div><select id="weapon">
+        <option selected disabled>What was the murder weapon?</option>
+        <option value="a banana, which the killer then proceeded to duct-tape to the wall">a banana which he then duct-taped to the wall</option>
+        <option value="a wrench">a wrench</option>
+        <option value="their own footwear">the very Crocs they were wearing. Or stealing? Idk.</option>
+        <option value="a cardboard box? Ok then... so they murdered our victim with a box">a cardboard box</option>
+        <option value="a knife">a sharp kitchen knife</option>
+    
+    </select></div>
+    <div><select id="footwear">
+        <option selected disabled>What shoes was the killer wearing?</option>
+        <option value="white sneakers">some basic white sneakers</option>
+        <option value="Crocs">Crocs. Shame on the them. </option>
+        <option value="very small boots">very very small boots. </option>
+        <option value="no shoes">nothing. The killer was barefoot. </option>
+      </select></div>
+
+    <div><button onclick="deduction()">Press to input your deduction</button>
+        <br>
+        
+    </div>  
+    <div><button type="button" onclick="pageRedirect()">Yes, that's correct.</button></div>
+  </div>
+
+  <br>
+  <center> 
+    <p id="demo"></p>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     <a href="home.html"> Home</a>
     </center>
-   <br>
-   <br>
+  
+
    </body>
    </html>

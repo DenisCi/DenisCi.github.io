@@ -1,15 +1,21 @@
 <html>
     <head>
-   <title>Exploration</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Victim's Apartment</title>
    <link rel="stylesheet" href="style.css">
+   <meta http-equiv = "refresh" content = "15; url = explanation.html" />
     </head>
+    
+    <!--For flashlight effect-->
     <style>
         :root {
-        cursor: none;
+          z-index: 1000;
+        cursor: default;
         --cursorX: 50vw;
         --cursorY: 50vh;
       }
       :root:before {
+        z-index: 1000;
         content: '';
         display: block;
         width: 100%;
@@ -26,27 +32,42 @@
     </style>
 
     <body>
+
+      <div id="wrench" style="top:70vh;left: 18vw;">
+        <img src="https://lh3.googleusercontent.com/proxy/MF5lmCDJVCd5VumHSFydPrGZlTLsR5tR4W6KMcLWOWJ5X5-9xE7ijeYjQp4wwXZazpEwakPpsBcWZws5WCGCQALCIINcPTtWY0-OHbrFOjRp73U" class="item">
+      </div>
+      <div id="box" style="top:50vh;left:10vw;">
+        <img src="https://pngimg.com/uploads/box/box_PNG35.png" class="item2">
+      </div>
+      <div id="couch" style="top:45vh;left:30vw;">
+        <img src="https://lh3.googleusercontent.com/proxy/RYlQTycpNrltPgMINGr7cd0DiL0j7ZT4e3zafO1snVBdTf_BxC2zVe3KgHsNdFoE_CVPDVsuCQooX7Vp0H8AWXs4LurGryx2hjOxxVJ-5V8QiG_r83lGXcMJttqU-g" class="item3">
+      </div>
+      <div id="banana" style="top:45vh;left:50vw;">
+        <img src="https://image.spreadshirtmedia.com/image-server/v1/mp/designs/1026796558,width=178,height=178,version=1576183179/banana-duct-tape-to-wall.png" class="item">
+      </div>
+      <div id="bloodyKnife" style="top:80vh;left:35vw;">
+        <img src="https://cdn.shopify.com/s/files/1/0638/6243/products/32_5be488ad-a267-4966-92a8-533a516fc47f_1024x1024.png?v=1571438588" class="item">
+      </div>
+      <div id="rug" style="top:68vh;left:20vw;">
+        <img src="https://pngimg.com/uploads/carpet/carpet_PNG57716.png" class="item4">
+      </div>
+      <div id="croc" style="top:70vh;left:18vw;">
+        <img src="https://pngimg.com/uploads/crocs/crocs_PNG6.png" class="item">
+      </div>
+      <div id="shoe" style="top:75vh;left:83vw;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Worn_Shoe.png" class="item">
+      </div>
+
         <center>
-     <h1>Exploration</h1>
-       <h2>Interacting with environment and movable bits to piece together the story</h2>
+     <a href="home.html">Home</a>
        </center>
    <br>
-   <center>
-    <img src="https://i.ytimg.com/vi/cXGzssh0vQw/maxresdefault.jpg">
-   <br>
-   <br>
-   <br>
-   <br>
+    <img src="https://sites.google.com/a/share.brevardschools.org/digital-design-digital-media/_/rsrc/1471522977473/empty-room/EmptyRoom.jpg" class="BG">
+    
+    <div id="pic" style="top:72vh;left:60vw;">
+      <img src="https://static.thenounproject.com/png/35098-200.png" class="bgItem">
+    </div>
 
-   </center>
-   <br>
-   <br>
-   <br>
-   <center> 
-    <a href="home.html"> Home</a>
-    </center>
-   <br>
-   <br>
    <script>
        //https://codemyui.com/flashlight-mouse-pointer/
        //This is where I got THIS script. Again, there are still some things to work out and change
@@ -62,5 +83,62 @@
    document.addEventListener('mousemove',update)
    document.addEventListener('touchmove',update)
  </script>
+
+<script>
+  //https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_draggable
+  //this is where I got this script. i still need to change some stuff around to make it work with what I want to do.
+
+//Make the DIV element draggagle:
+dragElement(document.getElementById("wrench"));
+dragElement(document.getElementById("box"));
+dragElement(document.getElementById("couch"));
+dragElement(document.getElementById("banana"));
+dragElement(document.getElementById("bloodyKnife"));
+dragElement(document.getElementById("rug"));
+dragElement(document.getElementById("croc"));
+dragElement(document.getElementById("shoe"));
+
+function dragElement(elmnt) {
+ var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+ if (document.getElementById(elmnt.id + "header")) {
+   /* if present, the header is where you move the DIV from:*/
+   document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+ } else {
+   /* otherwise, move the DIV from anywhere inside the DIV:*/
+   elmnt.onmousedown = dragMouseDown;
+ }
+
+ function dragMouseDown(e) {
+   e = e || window.event;
+   e.preventDefault();
+   // get the mouse cursor position at startup:
+   pos3 = e.clientX;
+   pos4 = e.clientY;
+   document.onmouseup = closeDragElement;
+   // call a function whenever the cursor moves:
+   document.onmousemove = elementDrag;
+ }
+
+ function elementDrag(e) {
+   e = e || window.event;
+   e.preventDefault();
+   // calculate the new cursor position:
+   pos1 = pos3 - e.clientX;
+   pos2 = pos4 - e.clientY;
+   pos3 = e.clientX;
+   pos4 = e.clientY;
+   // set the element's new position:
+   elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+   elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+ }
+
+ function closeDragElement() {
+   /* stop moving when mouse button is released:*/
+   document.onmouseup = null;
+   document.onmousemove = null;
+ }
+}
+</script>
+
    </body>
    </html>
