@@ -1,0 +1,53 @@
+@import url(https://fonts.googleapis.com/css2?&family=Ubuntu&display=swap);
+
+*{
+    font-family: "Ubuntu";
+}
+body{
+    background-color: rgb(80, 80, 80);
+    text-align: center;
+}
+
+.text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.4);
+    margin-left: 5vw;
+    margin-right: 5vw;
+}
+
+#writing{
+    margin-left: 10vw;
+    margin-right: 10vw;
+}
+
+h1{
+    text-align: center;
+    text-shadow: 4px 4px 4px #aaa;
+}
+
+h2{
+    text-align: center;
+    text-shadow: 4px 4px 4px #aaa;
+}
+
+#image img{
+    width: auto;
+    height: 50vh;
+}
+
+button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 50px;
+}
+
+#myButton{
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+}
