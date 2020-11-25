@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+  <meta charset="utf-8">
+  <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+<head>
+  <title>The 90's</title>
+  <link rel="stylesheet" href="style.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>   //inspired by old yahoo site: https://www.webdesignmuseum.org/uploaded/timeline/yahoo/yahoo-1994.png
+$(document).ready(function(){  //initially hiding all elements
+    $("#button1").hide();
+    $("#button2").hide();
+    $("#button3").hide();
+    $("#img").hide();
+    $("#img2").hide();
+    $("#img3").hide();
+});
+
+$(document).ready(function(){  //toggle music button elements
+  $("#myButton").click(function(){
+    $("#button1").fadeToggle();
+    $("#button2").fadeToggle();
+    $("#button3").fadeToggle();
+  });
+});
+$(document).ready(function(){   //toggle img1, hide others
+  $("#button1").click(function(){
+    $("#img").fadeToggle();
+    $("#img2").hide();
+    $("#img3").hide();
+  });
+});
+$(document).ready(function(){  //toggle img2, hide others
+  $("#button2").click(function(){
+    $("#img2").fadeToggle();
+    $("#img").hide();
+    $("#img3").hide();
+  });
+});
+$(document).ready(function(){  //toggle img3, hide others
+  $("#button3").click(function(){
+    $("#img3").fadeToggle();
+    $("#img").hide();
+    $("#img2").hide();
+  });
+});
+  
+
+var z = 0;   //value to help play 2Pac
+var v = 0;   //value to help play Backstreet Boys
+var b = 0;   //value to help play Green Day
+
+function playAudio() {                            //plays/pauses 2Pac
+  var x = document.getElementById("myAudio"); 
+  var y = document.getElementById("myAudio2"); 
+  var a = document.getElementById("myAudio3")
+ if(z == 0){
+  if(v != 0 || b != 0){
+    y.pause();
+    v = 0;
+    a.pause();
+    b = 0;
+   }
+  x.play();
+  z = 1;
+ }else{
+   x.pause();
+   z = 0;
+ }
+}
+
+function playAudio2() {                         //plays/pauses Backstreet Boys
+  var y = document.getElementById("myAudio2"); 
+  var x = document.getElementById("myAudio"); 
+  var a = document.getElementById("myAudio3")
+ if(v == 0){
+   if(z != 0 || b != 0){
+    x.pause();
+    z = 0;
+    a.pause();
+    b = 0;
+   }
+  y.play();
+  v = 1;
+ }else{
+   y.pause();
+   v = 0;
+ }
+} 
+
+function playAudio3() {                         //plays/pauses Green Day
+  var a = document.getElementById("myAudio3")
+  var y = document.getElementById("myAudio2"); 
+  var x = document.getElementById("myAudio"); 
+ if(b == 0){
+   if(z != 0 || v != 0){
+    x.pause();
+    z = 0;
+    y.pause();
+    v = 0;
+   }
+  a.play();
+  b = 1;
+ }else{
+   a.pause();
+   b = 0;
+ }
+} 
+
+               //end of script
+</script>  
+
+
+</head>
+<body>
+
+<h1><u><b>Music In The 90's - Stuff from 2 decades ago</b></u></h1>
+
+<audio id="myAudio">
+  <source src="changes.mp3" type="audio/mpeg">  <!--2Pac audio-->
+</audio>
+<audio id="myAudio2">
+  <source src="BBoys.mp3" type="audio/mpeg">    <!--Backstreet Boys audio-->
+</audio>
+<audio id="myAudio3">
+  <source src="GreenDay.mp3" type="audio/mpeg">    <!--Backstreet Boys audio-->
+</audio>
+
+
+<div class="flex-container">                     <!--container for buttons-->
+<button id = "myButton"><u><b>Music Options</b></u></button><br><br>
+
+<button id="button1" onclick="playAudio()" type="button"><u><b>Changes - 2Pac</b></u></button>  <!--click to play/pause 2Pac-->
+
+<button id="button2" onclick="playAudio2()" type="button"><u><b>I Want It That Way - Backstreet Boys</b></u></button>  <!--click to play/pause BBoys-->
+
+<button id="button3" onclick="playAudio3()" type="button"><u><b>Basket Case - Green Day</b></u></button>  <!--click to play/pause BBoys-->
+
+</div>
+
+<div class="imageContainer">      <!--containes images-->
+  <div id="img">
+  <img src = "https://i2.wp.com/mpmania.com/wp-content/uploads/2020/06/2Pac-Changes.jpg?fit=600%2C600&ssl=1&p=164944" class="image">
+  </div> 
+  <div id="img2">
+    <img src = "https://auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0408/users/6421c6a91308b6a40ef61bd04bcbcbdab89f6343/i-img1200x1200-15353864469kw8dt965555.jpg" class="image">
+    </div> 
+    <div id="img3">
+      <img src = "https://images-na.ssl-images-amazon.com/images/I/91AFnh41kGL._SL1425_.jpg" class="image">
+      </div> 
+</div>
+
+</body>
+</html>

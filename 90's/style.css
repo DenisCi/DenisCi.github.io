@@ -1,0 +1,71 @@
+body{
+    background-color: rgb(160, 160, 160);
+}
+
+h1{ 
+    color: rgb(57, 57, 252);
+}
+
+.imageContainer{
+    z-index: -2;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    width: 90vw;
+    top: 100px;
+    margin-left: 5vw;
+    margin-right: 5vw;
+}
+
+.flex-container {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    background-color: transparent;
+}
+
+.flex-container > div {
+    background-color: #f1f1f1;
+    width: 100px;
+    margin: 10px;
+    text-align: center;
+  }
+
+.image{
+    width: auto;
+    height: 80vh;
+}
+
+#img{
+       z-index: -5; 
+       background-color: transparent;
+}
+
+#img2{
+    z-index: -4; 
+    background-color: transparent;
+}
+
+#img3{
+    z-index: -3; 
+    background-color: transparent;
+}
+
+button{
+    display: flex;
+    align-items: center;
+    width: 250px;
+    height: 50px;
+    color: blue;
+    background-color: transparent;
+    border: none;
+    margin-left: 5vw;
+}
+
+#myButton{
+    color: blue;
+}
