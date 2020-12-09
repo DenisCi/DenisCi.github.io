@@ -1,0 +1,151 @@
+
+.navigation { /* Style for nav bar. currently doesn't do much. May add options to auto-scroll later */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    width: 100vw;
+    height: 15vh;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background-color: rgb(255, 225, 144);
+}
+
+.textBox { /* Style for text box */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    width: 40vw;
+    height: 50vh;
+    z-index: 10;
+    background-color: rgba(255, 255, 255, 0.3);
+    margin-right: 50vw;
+    margin-left: 6vw;
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.15);
+}
+
+.textBox2 { /* Style for text boxes on the right side of the screen */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    width: 40vw;
+    height: 50vh;
+    z-index: 10;
+    background-color: rgba(255, 255, 255, 0.3);
+    margin-right: 5vw;
+    margin-left: 52vw;
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.15);
+}
+
+
+body{  /*Style for body*/
+    background-color: rgb(103, 155, 253);
+    z-index: -10;
+}
+
+h1{  /*Style for title text on nav*/
+    font-size: 7vh;
+    color: rgb(0, 0, 77);
+    font-weight: bolder;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+p{   /* style for body text  */
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 2vh;
+    font-weight: bold;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 1080px) { /*Checking size of media. Adjusts text and boxes accordingly */
+    p{
+        font-size: 1vh;
+        margin-bottom: 1px;
+        margin-top: 1px;
+        margin-left: 1px;
+        margin-right: 1px;
+    }
+    .textBox {
+        height: 30vh;
+    }
+    .textBox2 {
+        height: 30vh;
+    }
+}
+
+#photo{  /*Image sizing*/
+    width: 40vw;
+    height: auto;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.35);
+    z-index: 5;
+}
+
+.bgImg{ /*Style for BG image*/
+ width: 100vw;
+ height: auto;
+ top: 0;
+ left: 0;
+ z-index: -1;
+ position: absolute;
+}
+
+
+.imageBox {       /*Initial container for img. opacity is 0 */
+    position: absolute;
+    width: 40vw;
+    height: 50vh;
+    z-index: 3;
+    margin-left: 55vw;
+    margin-right: 5vw;
+    opacity: 0;      /*initially invisible*/
+    -webkit-transition: opacity .3s .25s ease-out,                 /* transition/transform source: https://cssanimation.rocks/scroll-animations/ */
+                -webkit-transform 4s .25s cubic-bezier(0,1,.3,1);
+    transition: opacity .3s .25s ease-out,
+                -webkit-transform 4s .25s cubic-bezier(0,1,.3,1);
+    transition: transform 4s .25s cubic-bezier(0,1,.3,1),
+                opacity .3s .25s ease-out;
+    transition: transform 4s .25s cubic-bezier(0,1,.3,1),
+                opacity .3s .25s ease-out,
+                -webkit-transform 4s .25s cubic-bezier(0,1,.3,1);
+    width: 90%;
+  
+    will-change: transform, opacity;
+  }
+  
+  .imageBox.is-visible {    /*After the "is-visible" class is attached, opacity becomes 1*/
+    opacity: 1;
+    transform: translateX(-3vw);
+  }
+
+  .imageBox2 {              /* Same as previous container, but with reversed margins so it fits correctly on the left side*/
+    position: absolute;
+    width: 40vw;
+    height: 50vh;
+    z-index: 3;
+    margin-right: 45vw;
+    margin-left: 3vw;
+    opacity: 0;
+    -webkit-transition: opacity .3s .25s ease-out,
+                -webkit-transform 4s .25s cubic-bezier(0,1,.3,1);
+    transition: opacity .3s .25s ease-out,
+                -webkit-transform 4s .25s cubic-bezier(0,1,.3,1);
+    transition: transform 4s .25s cubic-bezier(0,1,.3,1),
+                opacity .3s .25s ease-out;
+    transition: transform 4s .25s cubic-bezier(0,1,.3,1),
+                opacity .3s .25s ease-out,
+                -webkit-transform 4s .25s cubic-bezier(0,1,.3,1);
+    width: 90%;
+  
+    will-change: transform, opacity;
+  }
+  
+  .imageBox2.is-visible {  /* Makes container visible by giving it an opacity of 1 when it "is-visible" */
+    opacity: 1;
+    transform: translateX(3vw);
+  }
